@@ -5,6 +5,7 @@
 
 int main(int argc, char const **argv)
 {
+    //Check if one argument was passed
     try
     {
         if (argc != 2)
@@ -25,18 +26,24 @@ int main(int argc, char const **argv)
         return 1;
     }
 
+    //Check if the file exist/can be opend
     std::ifstream inputFile(argv[1]);
-    inputFile.open(argv[1]);
     if (!inputFile)
     {
-        std::cout << "Cannot find/open the file\n";
+        std::cout << "Cannot find/open " << argv[1] << std::endl;
         return 1;
     }
 
+    //Convert to std::ifstream to std::string
     std::stringstream converter;
     converter << inputFile.rdbuf();
 
-    parser myParser(converter.str());
+    inputFile.close();
+
+    std::string bfFile = converter.str();
+
+    //Parse the file
+    parser myParser(bfFile);
 
     return 0;
 }
