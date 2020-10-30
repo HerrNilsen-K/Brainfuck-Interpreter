@@ -5,14 +5,14 @@ namespace brainfuck::core
 {
     enum BF_SYMBOLS
     {
-        PLUS = 1,
-        MINUS,
-        SMALLER,
-        BIGGER,
-        C_BRACKET,
-        O_BRACKET,
-        DOT,
-        COMMA
+        PLUS = '+',
+        MINUS = '-',
+        SMALLER = '<',
+        BIGGER = '>',
+        C_BRACKET = '[',
+        O_BRACKET = ']',
+        DOT = '.',
+        COMMA = ','
     };
 }
 #endif // __BFCHARS_H__
